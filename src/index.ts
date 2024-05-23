@@ -9,10 +9,10 @@ dotenv.config();
 const {META_ACCESS_TOKEN, META_ACCOUNT_ID} = process.env;
 
 FacebookAdsApi.init(META_ACCESS_TOKEN!);
-const account = new AdAccount(META_ACCOUNT_ID);
 
 const start = async () => {
   try {
+    const account = new AdAccount(META_ACCOUNT_ID);
     const campaigns = await account.getCampaigns([
       Campaign.Fields.name,
       Campaign.Fields.status,
