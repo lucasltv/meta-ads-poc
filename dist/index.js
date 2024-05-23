@@ -13,22 +13,27 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv_1 = __importDefault(require("dotenv"));
+const facebook_nodejs_business_sdk_1 = require("facebook-nodejs-business-sdk");
 dotenv_1.default.config();
+const META_ACCESS_TOKEN = process.env.META_ACCESS_TOKEN;
+if (!META_ACCESS_TOKEN) {
+    throw new Error('META_ACCESS_TOKEN is not defined');
+}
+facebook_nodejs_business_sdk_1.FacebookAdsApi.init(META_ACCESS_TOKEN);
 const start = () => __awaiter(void 0, void 0, void 0, function* () {
-    // TODO: campaigns and metrics:
-    // - Impressions
-    // - Clicks
-    // - Cost
-    // - Conversions
-    // - ConversionValue
-    // - CTR
-    // - CPC
-    // - CPA
-    // - ROAS
-    // - ConversionRate
-    debugger;
+    try {
+        const ACCOUNT_ID = '672705062778542';
+        const account = new facebook_nodejs_business_sdk_1.AdAccount(ACCOUNT_ID);
+        const campaigns = yield account.getCampaigns([
+            facebook_nodejs_business_sdk_1.Campaign.Fields.name,
+            facebook_nodejs_business_sdk_1.Campaign.Fields.status,
+        ]);
+        debugger;
+    }
+    catch (error) {
+        debugger;
+        console.error('Error fetching campaigns:', error);
+    }
 });
-start().catch(e => {
-    console.error(e);
-});
+start();
 //# sourceMappingURL=index.js.map
