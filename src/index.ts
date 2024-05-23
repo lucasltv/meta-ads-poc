@@ -16,7 +16,7 @@ FacebookAdsApi.init(META_ACCESS_TOKEN);
 
 const start = async () => {
   try {
-    const ACCOUNT_ID = 'TEMP_ACCOUNT_ID';
+    const ACCOUNT_ID = '123';
     const account = new AdAccount(ACCOUNT_ID);
     const campaigns = await account.getCampaigns([
       Campaign.Fields.name,
