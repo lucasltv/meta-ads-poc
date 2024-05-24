@@ -1,6 +1,6 @@
 {
   "name": "meta-ads-poc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "scripts": {
     "dev": "tsnd  --inspect --respawn src/index.ts",
