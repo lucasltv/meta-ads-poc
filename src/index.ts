@@ -82,5 +82,5 @@ const start = async () => {
   }
 };
 
-refreshAccessToken();
-// start();
+// refreshAccessToken();
+start();
